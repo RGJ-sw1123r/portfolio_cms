@@ -62,20 +62,20 @@ DB 프로시저 및 함수와 같은 블랙박스 구조는 최소화하고, 추
 
 📂 프로젝트 구조
 
-portfolio_cms/
-├── README.md                        # 이 문서
-├── build.gradle                     # Spring Boot Gradle 설정
+📁 portfolio_cms/
+├── README.md              # 이 문서
+├── build.gradle           # Spring Boot Gradle 설정
 ├── settings.gradle
 ├── src/
 │   └── main/
-│       ├── java/                    # 백엔드 Java 코드
+│       └── java/
+│           └── 패키지명 Java 소스
 │       └── resources/
-│           ├── application.yml     # 공통 설정
-│           └── application-dev.yml # 민감 설정 (Git에 포함되지 않음)
+│           └── application.yml  # 공통 설정
+│           └── application-dev.yml  # 민감 설정 (Git에 포함되지 않음)
 ├── frontend/
-│   ├── package.json                # 프론트엔드 패키지 설정
-│   ├── vite.config.ts              # Vite 설정 (SvelteKit)
-│   └── src/
-│       └── routes/                 # SvelteKit 페이지 구성
+│   ├── package.json       # 프론트엔드 패키지 설정
+│   ├── vite.config.ts     # Vite 설정 (SvelteKit)
+│   └── src/               # SvelteKit 페이지 구성
 ├── .gitignore
-└── ...
+
