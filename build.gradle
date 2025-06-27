@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.3'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMdd_HHmmss')
+    return formattedDate
+}
+
+bootJar {
+    archiveFileName = "portfolio-cms-${getDate()}.jar"
+}
+
+group = 'com.portfolio'
+version = '0.1.0-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+	implementation 'com.google.code.gson:gson:2.10.1'
+	implementation 'com.google.guava:guava:32.1.2-jre'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.11.0'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
